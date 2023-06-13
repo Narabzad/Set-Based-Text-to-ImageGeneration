@@ -1,6 +1,6 @@
 This repo contains the code for running offline evaluation of Set-Based Text-to-Image Generation.
 
-## Evalaution on set of generated images
+## Evaluation on set of generated images
 To run the set of propsoed evaluation metrics on a set of generated images, first clone this repository and then run ```eval.py``` as follows:
 
 ```
@@ -52,3 +52,14 @@ saliency rbp
 <class 'str'>
 The quality of the gird of generated images in generated_images is evaluated as :0.7573248372242919
 ```
+
+### Saliency Prediction
+We use the [trained visual saliency model on the web pages](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/webpage_stonybrook_baseline) in order to predict the saliency of an image or a grid of images.
+[```saliency.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/saliency.py) provide neccessary functions to preprocess an image and predict the visual saliency.
+
+### Relevance
+[```inception.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/inception.py) provide neccessary function to embed the images using InceptionV3 model and find the relevance score w.r.t a given target image. 
+
+### Metrics
+[```metrics.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/metrics.py) provide necessary functions to measure ERR, RBP and their different variations on a given list of relevance scores from a rankedlist/grid. 
+
