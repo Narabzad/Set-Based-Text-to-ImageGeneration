@@ -27,7 +27,7 @@ This script will generated the following grid from [the generated images](https:
 
 ![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png)
 
-The script will evaluate rbp based on saliency trajectories as explained in the paper and will show the following outputs: 
+Given [thistarget image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/pandatarget.png), the script will evaluate rbp based on saliency trajectories as explained in the paper and will show the following outputs: 
 
 ```
 grid of images generated and saved as grids/grid_generated_images.png
