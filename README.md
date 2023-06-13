@@ -24,7 +24,9 @@ python eval.py  \
   -n_samples 50
 ```
 This script will generated the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
-![alt text]([http://url/to/img.png](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png)
+
+![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png)
+
 ```
 grid of images generated and saved as grids/grid_generated_images.png
 saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027
