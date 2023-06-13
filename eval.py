@@ -7,22 +7,25 @@ from metrics import err_trajectory,gumbel_max_sample_array,rbp_trajectory
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-image_dir', type=str, default='generated_images')
-    parser.add_argument('-target_image', type=str, default='pandatarget.png')
-    parser.add_argument('-metric', type=str, default='rbp')
-    parser.add_argument('-trajectory', type=str, default='saliency')
+    parser.add_argument('--list', default='all', choices=['servers', 'storage', 'all'],) 
+
+    parser.add_argument('-image_dir', type=str, default='generated_images',  help='directory that nicludes all the generated images')
+    parser.add_argument('-target_image', type=str, default='pandatarget.png' ,  help='path to the target image')
+    parser.add_argument('-metric', type=str, default='rbp',  choices=['rbp', 'err'],help='choice of base evalaution metric')
+    parser.add_argument('-trajectory', type=str, default='saliency',  choices=['saliency', 'order'],help='choice of scanning trajectories in the grid')
     parser.add_argument('-gamma', type=float, default=0.8)
-    parser.add_argument('-n_samples', type=float, default=50)
+    parser.add_argument('-n_samples', type=int, default=50)
     args = parser.parse_args()
 
     saliency_pred = np.array(get_saliency_per_grid(args.image_dir))
     print('saliency',saliency_pred)
     images = [ args.image_dir + "/"+i for i in sorted(listdir(args.image_dir)) ]
-    relevance=[]
+    relevance=find_relevance_array(args.target_image,images)
     print('relevance',str(find_relevance_array(args.target_image,images)))
-
+    print(args.trajectory,args.metric)
+    print(type(args.metric))
     total_eval=[]
-    for n in range(args.n_samples):
+    for n in range(int(args.n_samples)):
         path=(gumbel_max_sample_array(saliency_pred))
         if args.metric=='rbp':
             if args.trajectory=='order':
