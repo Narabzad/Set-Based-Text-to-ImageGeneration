@@ -1,2 +1,54 @@
 This repo contains the code for running offline evaluation of Set-Based Text-to-Image Generation.
-The code will be updated before the deadline for supplementary material i.e.,  Jun 14, 2023
+
+## Evalaution on set of generated images
+To run the set of propsoed evaluation metrics on a set of generated images, first clone this repository and then run ```eval.py``` as follows:
+
+```
+python eval.py \ 
+  -image_dir /path/to/folder/including/generated_images 
+  -target_image /path/to/gold/standard/target/image
+  -metric <choice of ['rbp','err']>
+  -trajectory <choice of ['saliency','order']>
+  -gamma <user persistensy parameter default=0.8>
+  -n_samples <number of sampled trajectories, default=50>
+```
+For example:
+
+```
+python eval.py  \
+  -image_dir generated_images \
+  -target_image pandatarget.png  \
+  -metric rbp   \
+  -trajectory saliency   \
+  -gamma 0.8  \
+  -n_samples 50
+```
+will give you the following outputs:
+
+```
+grid of images generated and saved as grids/grid_generated_images.png
+saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027
+ 0.00211734 0.00200697]
+1/1 [==============================] - 2s 2s/step
+1/1 [==============================] - 0s 297ms/step
+1/1 [==============================] - 0s 291ms/step
+1/1 [==============================] - 0s 308ms/step
+1/1 [==============================] - 0s 307ms/step
+1/1 [==============================] - 0s 324ms/step
+1/1 [==============================] - 0s 300ms/step
+1/1 [==============================] - 0s 342ms/step
+1/1 [==============================] - 0s 312ms/step
+1/1 [==============================] - 0s 307ms/step
+1/1 [==============================] - 0s 282ms/step
+1/1 [==============================] - 0s 283ms/step
+1/1 [==============================] - 0s 307ms/step
+1/1 [==============================] - 0s 298ms/step
+1/1 [==============================] - 0s 316ms/step
+1/1 [==============================] - 0s 341ms/step
+1/1 [==============================] - 0s 304ms/step
+1/1 [==============================] - 0s 335ms/step
+relevance [0.7808417081832886, 0.7563698887825012, 0.7388613820075989, 0.7263504862785339, 0.749413013458252, 0.7648179531097412, 0.7904155850410461, 0.7195844054222107]
+saliency rbp
+<class 'str'>
+The quality of the gird of generated images in generated_images is evaluated as :0.7573248372242919
+```
