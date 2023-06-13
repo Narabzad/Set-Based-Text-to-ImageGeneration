@@ -23,8 +23,8 @@ python eval.py  \
   -gamma 0.8  \
   -n_samples 50
 ```
-will give you the following outputs:
-
+This script will generated the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
+https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png
 ```
 grid of images generated and saved as grids/grid_generated_images.png
 saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027
