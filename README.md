@@ -13,7 +13,7 @@ python eval.py \
   -n_samples <number of sampled trajectories, default=50>
   -variety <if vairety needs to be considered when measuring relevance scores, choice of [True, False]>
 ```
-### Example 1
+### Example 1 - RBP 
 ```
 python eval.py  \
   -image_dir example1 \
@@ -24,11 +24,11 @@ python eval.py  \
   -n_samples 50 \
   -variety False
 ```
-This script will generate the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
+This script will generate the following grid from [example1](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
 
-![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png)
+![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_example1.png)
 
-Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/pandatarget.png),the script will evaluate RBP based on saliency trajectories as explained in the paper and show the following outputs:
+Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/targets/example1.png),the script will evaluate RBP as explained in the paper and show the following outputs:
 
 ```
 grid of images generated and saved as grids/grid_generated_images.png
@@ -58,6 +58,49 @@ trajectory saliency
 evaluation: 0.6345379112701999
 ```
 
+### Example 1 - Novelty ERR - Saliency-based Trajectories:
+```
+python eval.py  \
+  -image_dir example2 \
+  -target_image targets/example2.png  \
+  -metric err   \
+  -trajectory saliency   \
+  -gamma 0.8  \
+  -n_samples 50 \
+  -variety True
+```
+ This script will generate the following grid from [example2](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
+
+![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_example2.png)
+
+Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/targets/example2.png),the script will evaluate ERR based on saliency trajectories as explained in the paper and show the following outputs:
+
+```
+grid of images generated and saved as grids/grid_example2.png
+1/1 [==============================] - 2s 2s/step
+1/1 [==============================] - 0s 291ms/step
+1/1 [==============================] - 0s 314ms/step
+1/1 [==============================] - 0s 277ms/step
+1/1 [==============================] - 0s 296ms/step
+1/1 [==============================] - 0s 295ms/step
+1/1 [==============================] - 0s 291ms/step
+1/1 [==============================] - 0s 290ms/step
+1/1 [==============================] - 0s 322ms/step
+1/1 [==============================] - 0s 283ms/step
+1/1 [==============================] - 0s 287ms/step
+1/1 [==============================] - 0s 284ms/step
+1/1 [==============================] - 0s 307ms/step
+1/1 [==============================] - 0s 309ms/step
+1/1 [==============================] - 0s 304ms/step
+1/1 [==============================] - 0s 288ms/step
+1/1 [==============================] - 0s 302ms/step
+saliency [0.00303167 0.00243593 0.25322178 0.18516748 0.29889885 0.25214726 0.002624   0.00247295]
+The quality of the gird of generated images in example2 directory is evaluated as :
+metric err
+variety True
+trajectory saliency
+evaluation: 0.7194848886004105
+```
 ### Saliency Prediction
 We use the [trained visual saliency model on the web pages](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/webpage_stonybrook_baseline) in order to predict the saliency of an image or a grid of images.
 [```saliency.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/saliency.py) provide neccessary functions to preprocess an image and predict the visual saliency.
