@@ -131,5 +131,5 @@ saliency of the imnage is predicted as
 [```inception.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/inception.py) provide neccessary function to embed the images using InceptionV3 model and find the relevance score w.r.t a given target image. 
 
 ### Metrics
-[```metrics.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/metrics.py) provide necessary functions to measure ERR, RBP and their different variations on a given list of relevance scores from a rankedlist/grid. 
+[```metrics.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/metrics.py) provide necessary functions to measure ERR, RBP and their different variations on a given list of relevance scores from a ranked list/grid. 
 
