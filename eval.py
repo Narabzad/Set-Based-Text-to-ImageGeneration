@@ -9,9 +9,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--list', default='all', choices=['servers', 'storage', 'all'],) 
 
-    parser.add_argument('-image_dir', type=str, default='generated_images',  help='directory that nicludes all the generated images')
+    parser.add_argument('-image_dir', type=str, default='generated_images',  help='directory that includes all the generated images')
     parser.add_argument('-target_image', type=str, default='pandatarget.png' ,  help='path to the target image')
-    parser.add_argument('-metric', type=str, default='rbp',  choices=['rbp', 'err'],help='choice of base evalaution metric')
+    parser.add_argument('-metric', type=str, default='rbp',  choices=['rbp', 'err'],help='choice of base evaluation metric')
     parser.add_argument('-trajectory', type=str, default='saliency',  choices=['saliency', 'order'],help='choice of scanning trajectories in the grid')
     parser.add_argument('-gamma', type=float, default=0.8,help='persistency parameter')
     parser.add_argument('-n_samples', type=int, default=50,help='number of sampled trajectories')
@@ -56,4 +56,4 @@ if __name__ == "__main__":
     print('variety', args.variety)
     if args.variety==True: 
         print('trajectory', args.trajectory)
-    print('evalaution:', str(np.mean(total_eval)))
+    print('evaluation:', str(np.mean(total_eval)))
