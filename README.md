@@ -19,7 +19,6 @@ python eval.py  \
   -image_dir example1 \
   -target_image targets/example1.png  \
   -metric rbp   \
-  -trajectory saliency   \
   -gamma 0.8  \
   -n_samples 50 \
   -variety False
