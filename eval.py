@@ -26,7 +26,6 @@ if __name__ == "__main__":
 
     original_relevance=find_relevance_array(args.target_image,images)
     print('saliency',saliency_pred)
-    print(args.trajectory,args.metric)
 
     total_eval=[]
     for n in range(int(args.n_samples)):
@@ -52,5 +51,9 @@ if __name__ == "__main__":
         elif args.metric =='err':
             total_eval.append(err_trajectory(relevance,path,args.gamma))
 
-    print('The quality of the gird of generated images in '+args.image_dir+' is evaluated as :' + str(np.mean(total_eval)))
-
+    print('The quality of the gird of generated images in '+args.image_dir+' directory is evaluated as :' )
+    print('metric', args.metric)
+    print('variety', args.variety)
+    if args.variety==True: 
+        print('trajectory', args.trajectory)
+    print('evalaution:', str(np.mean(total_eval)))
