@@ -58,7 +58,7 @@ trajectory saliency
 evaluation: 0.6345379112701999
 ```
 
-### Example 1 - Novelty ERR - Saliency-based Trajectories:
+### Example 2 - Novelty ERR - Saliency-based Trajectories:
 ```
 python eval.py  \
   -image_dir example2 \
