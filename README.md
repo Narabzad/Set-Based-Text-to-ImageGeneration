@@ -55,7 +55,7 @@ The quality of the gird of generated images in generated_images directory is eva
 metric rbp
 variety True
 trajectory saliency
-evalaution: 0.6345379112701999
+evaluation: 0.6345379112701999
 ```
 
 ### Saliency Prediction
