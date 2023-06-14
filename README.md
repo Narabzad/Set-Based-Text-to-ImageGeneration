@@ -101,6 +101,8 @@ variety True
 trajectory saliency
 evaluation: 0.7194848886004105
 ```
+
+As a sanity check 
 ### Saliency Prediction
 We use the [trained visual saliency model on the web pages](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/webpage_stonybrook_baseline) in order to predict the saliency of an image or a grid of images.
 [```saliency.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/saliency.py) provide neccessary functions to preprocess an image and predict the visual saliency.
