@@ -4,7 +4,7 @@ from numpy import asarray
 from PIL import Image
 from os import listdir
 import numpy 
-import numpy
+import argparse
 
 
 model_dir = "webpage_stonybrook_baseline"
@@ -59,4 +59,8 @@ def get_saliency_per_grid(image_directory):
             image_saliency.append(numpy.sum(saliency))
     return(image_saliency)
     
-#get_saliency_per_grid("generated_images")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-image_dir', type=str ,default='generated_images/i1.png') 
+    args = parser.parse_args()
+    print('saliency of the imnage is predicted as' , get_saliency(args.image_dir))
