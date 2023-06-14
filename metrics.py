@@ -25,12 +25,15 @@ def rbp_trajectory(rel,trajectory,gamma):
     return ( gamma )  *  rbp_score
 
 def err_trajectory(rel,trajectory,gamma):
+    print('-0------')
+    print(rel,trajectory,gamma)
     err_score=0
     for i in range(len(rel)):
         prod=1
         for j in range(i):
             prod *= 1 - rel[trajectory[j]]
         err_score += (rel[trajectory[i]] / (i+1) ) * math.pow(gamma , i )  * prod
+        print(err_score)
     return err_score
 
 def gumbel_max_sample(x):
