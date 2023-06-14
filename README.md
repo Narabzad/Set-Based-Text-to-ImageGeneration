@@ -5,13 +5,13 @@ To run the set of proposed evaluation metrics on a set of generated images, firs
 
 ```
 python eval.py \ 
-  -image_dir /path/to/folder/including/generated_images 
-  -target_image /path/to/gold/standard/target/image
+  -image_dir </path/to/folder/including/generated_images< 
+  -target_image </path/to/gold/standard/target/image<
   -metric <choice of ['rbp','err']>
   -trajectory <choice of ['saliency','order']>
-  -gamma <user persistensy parameter default=0.8>
+  -gamma <user persistency parameter default=0.8>
   -n_samples <number of sampled trajectories, default=50>
-  -variety <True or False>
+  -variety <if vairety needs to be considered when measuring relevance scores, choice of [True, False]>
 ```
 For example:
 
