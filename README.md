@@ -13,8 +13,7 @@ python eval.py \
   -n_samples <number of sampled trajectories, default=50>
   -variety <if vairety needs to be considered when measuring relevance scores, choice of [True, False]>
 ```
-For example:
-
+### Example 1
 ```
 python eval.py  \
   -image_dir generated_images \
