@@ -33,8 +33,6 @@ Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGen
 
 ```
 grid of images generated and saved as grids/grid_generated_images.png
-saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027
- 0.00211734 0.00200697]
 1/1 [==============================] - 2s 2s/step
 1/1 [==============================] - 0s 297ms/step
 1/1 [==============================] - 0s 291ms/step
@@ -53,9 +51,9 @@ saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027
 1/1 [==============================] - 0s 341ms/step
 1/1 [==============================] - 0s 304ms/step
 1/1 [==============================] - 0s 335ms/step
-relevance [0.7808417081832886, 0.7563698887825012, 0.7388613820075989, 0.7263504862785339, 0.749413013458252, 0.7648179531097412, 0.7904155850410461, 0.7195844054222107]
+saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027 0.00211734 0.00200697]
 saliency rbp
-The quality of the gird of generated images in generated_images is evaluated as :0.7573248372242919
+The quality of the gird of generated images in generated_images is evaluated as :0.6356220413007794
 ```
 
 ### Saliency Prediction
