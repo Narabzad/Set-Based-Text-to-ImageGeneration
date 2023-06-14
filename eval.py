@@ -13,9 +13,9 @@ if __name__ == "__main__":
     parser.add_argument('-target_image', type=str, default='pandatarget.png' ,  help='path to the target image')
     parser.add_argument('-metric', type=str, default='rbp',  choices=['rbp', 'err'],help='choice of base evalaution metric')
     parser.add_argument('-trajectory', type=str, default='saliency',  choices=['saliency', 'order'],help='choice of scanning trajectories in the grid')
-    parser.add_argument('-gamma', type=float, default=0.8)
-    parser.add_argument('-n_samples', type=int, default=50)
-    parser.add_argument('-variety', type=bool, default=True)
+    parser.add_argument('-gamma', type=float, default=0.8,help='persistency parameter')
+    parser.add_argument('-n_samples', type=int, default=50,help='number of sampled trajectories')
+    parser.add_argument('-variety', type=bool, default=True,help='Considering diversity of generated images or not')
 
     args = parser.parse_args()
 
