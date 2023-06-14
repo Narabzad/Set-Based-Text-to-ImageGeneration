@@ -1,7 +1,7 @@
 from os import listdir
 import numpy as np 
 import argparse
-from inception import find_relevance, find_relevance_array
+from inception import find_relevance, find_relevance_array, pairwise_similarities
 from saliency import get_saliency_per_grid
 from metrics import err_trajectory,gumbel_max_sample_array,rbp_trajectory
 
@@ -15,27 +15,42 @@ if __name__ == "__main__":
     parser.add_argument('-trajectory', type=str, default='saliency',  choices=['saliency', 'order'],help='choice of scanning trajectories in the grid')
     parser.add_argument('-gamma', type=float, default=0.8)
     parser.add_argument('-n_samples', type=int, default=50)
+    parser.add_argument('-variety', type=bool, default=True)
+
     args = parser.parse_args()
 
     saliency_pred = np.array(get_saliency_per_grid(args.image_dir))
-    print('saliency',saliency_pred)
     images = [ args.image_dir + "/"+i for i in sorted(listdir(args.image_dir)) ]
-    relevance=find_relevance_array(args.target_image,images)
-    print('relevance',str(find_relevance_array(args.target_image,images)))
+    if args.variety==True:
+        cosine_matrix=pairwise_similarities(images)
+
+    original_relevance=find_relevance_array(args.target_image,images)
+    print('saliency',saliency_pred)
     print(args.trajectory,args.metric)
-    print(type(args.metric))
+
     total_eval=[]
     for n in range(int(args.n_samples)):
-        path=(gumbel_max_sample_array(saliency_pred))
+        if args.trajectory == 'saliency':
+            path=(gumbel_max_sample_array(saliency_pred))
+        else:
+            path = list(range(len(images)))
+
+        if args.variety==False: 
+            relevance = original_relevance
+        else:
+            relevance=original_relevance[:] 
+            for i in range(len(path)):
+                max_sim=0
+                for j in range(i):
+                    if cosine_matrix[path[i],path[j]] > max_sim:
+                        max_sim=cosine_matrix[path[i],path[j]]
+                
+                relevance[path[i]] = relevance[path[i]] * (1 - max_sim)
+
         if args.metric=='rbp':
-            if args.trajectory=='order':
-                total_eval.append(rbp_trajectory(relevance,list(range(len(listdir(args.image_dir)))),args.gamma))
-            elif args.trajectory =='saliency':
-                total_eval.append(rbp_trajectory(relevance,path,args.gamma))
+            total_eval.append(rbp_trajectory(relevance,path,args.gamma))
         elif args.metric =='err':
-            if args.trajectory=='order':
-                total_eval.append(err_trajectory(relevance,list(range(len(listdir(args.image_dir)))),args.gamma))
-            elif args.trajectory =='saliency':
-                total_eval.append(err_trajectory(relevance,path,args.gamma))
+            total_eval.append(err_trajectory(relevance,path,args.gamma))
 
     print('The quality of the gird of generated images in '+args.image_dir+' is evaluated as :' + str(np.mean(total_eval)))
+
