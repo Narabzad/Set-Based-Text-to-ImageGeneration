@@ -11,6 +11,7 @@ python eval.py \
   -trajectory <choice of ['saliency','order']>
   -gamma <user persistensy parameter default=0.8>
   -n_samples <number of sampled trajectories, default=50>
+  -variety <True or False>
 ```
 For example:
 
