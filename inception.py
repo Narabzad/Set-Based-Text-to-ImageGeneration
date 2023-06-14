@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 from scipy import spatial
 import math
+import os 
+from scipy.spatial.distance import cdist
 
 model = tf.keras.applications.InceptionV3(include_top=False,weights='imagenet',input_shape=(300,300,3),pooling='max')
 
@@ -25,5 +27,14 @@ def find_relevance_array(target,imgs):
         cosine_sim = 1 - spatial.distance.cosine(target_emb, img_emb)
         cosine_sim_grid.append(cosine_sim)
     return cosine_sim_grid
+from sklearn.metrics import pairwise_distances
 
 
+def pairwise_similarities(imgs):
+    all_embeddings=[]
+    for img in imgs:
+        img_emb = get_emb_img(img)
+        all_embeddings.append(img_emb)
+
+    cosine_matrix= 1- pairwise_distances(all_embeddings, metric="cosine")
+    return cosine_matrix
