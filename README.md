@@ -1,7 +1,7 @@
-This repo contains the code for running offline evaluation of Set-Based Text-to-Image Generation.
+This repository contains the code for running offline evaluation of Set-Based Text-to-Image Generation.
 
-## Evaluation on set of generated images
-To run the set of propsoed evaluation metrics on a set of generated images, first clone this repository and then run ```eval.py``` as follows:
+## Evaluation on a set of generated images
+To run the set of proposed evaluation metrics on a set of generated images, first clone this repository and then run  ```eval.py``` as follows:
 
 ```
 python eval.py \ 
@@ -25,11 +25,11 @@ python eval.py  \
   -n_samples 50 \
   -variety False
 ```
-This script will generated the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
+This script will generate the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
 
 ![alt text](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/grids/grid_generated_images.png)
 
-Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/pandatarget.png), the script will evaluate rbp based on saliency trajectories as explained in the paper and will show the following outputs: 
+Given [this target image](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/pandatarget.png),the script will evaluate RBP based on saliency trajectories as explained in the paper and show the following outputs:
 
 ```
 grid of images generated and saved as grids/grid_generated_images.png
