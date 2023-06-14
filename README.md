@@ -112,7 +112,8 @@ python saliency.py -image_dir example1/i1.png
 ```
 the output will look like this which will be a 2darray with the size of the image:
 ```
-saliency of the imnage is predicted as [[1.1226661e-07 1.1226661e-07 1.0985102e-07 ... 4.4218339e-08
+saliency of the imnage is predicted as
+[[1.1226661e-07 1.1226661e-07 1.0985102e-07 ... 4.4218339e-08
   4.5917613e-08 4.5917613e-08]
  [1.1226661e-07 1.1226661e-07 1.0985102e-07 ... 4.4218339e-08
   4.5917613e-08 4.5917613e-08]
