@@ -22,7 +22,8 @@ python eval.py  \
   -metric rbp   \
   -trajectory saliency   \
   -gamma 0.8  \
-  -n_samples 50
+  -n_samples 50 \
+  -variety False
 ```
 This script will generated the following grid from [the generated images](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/tree/main/generated_images) give you the following outputs:
 
