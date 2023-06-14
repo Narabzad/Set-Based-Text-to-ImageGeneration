@@ -51,8 +51,11 @@ grid of images generated and saved as grids/grid_generated_images.png
 1/1 [==============================] - 0s 304ms/step
 1/1 [==============================] - 0s 335ms/step
 saliency [0.00225529 0.00182395 0.2671824  0.2021625  0.28705123 0.23540027 0.00211734 0.00200697]
-saliency rbp
-The quality of the gird of generated images in generated_images directory is evaluated as :0.6356220413007794
+The quality of the gird of generated images in generated_images directory is evaluated as :
+metric rbp
+variety True
+trajectory saliency
+evalaution: 0.636149760434303
 ```
 
 ### Saliency Prediction
