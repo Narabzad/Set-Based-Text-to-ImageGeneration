@@ -108,9 +108,24 @@ We use the [trained visual saliency model on the web pages](https://github.com/N
 For example, the following command, will predict the saliency of a single image:
 
 ```  
-python saliency.py -image_dir generated_images/i1.png
+python saliency.py -image_dir example1/i1.png
 ```
-
+the output will look like this which will be a 2darray with the size of the image:
+```
+saliency of the imnage is predicted as [[1.1226661e-07 1.1226661e-07 1.0985102e-07 ... 4.4218339e-08
+  4.5917613e-08 4.5917613e-08]
+ [1.1226661e-07 1.1226661e-07 1.0985102e-07 ... 4.4218339e-08
+  4.5917613e-08 4.5917613e-08]
+ [1.1417994e-07 1.1417994e-07 1.1223193e-07 ... 4.2988301e-08
+  4.4331880e-08 4.4331880e-08]
+ ...
+ [3.6094601e-08 3.6094601e-08 3.8221611e-08 ... 2.0949896e-07
+  1.9440878e-07 1.9440878e-07]
+ [3.5043357e-08 3.5043357e-08 3.7084359e-08 ... 1.9273388e-07
+  1.7636771e-07 1.7636771e-07]
+ [3.5043357e-08 3.5043357e-08 3.7084359e-08 ... 1.9273388e-07
+  1.7636771e-07 1.7636771e-07]]
+```
 ### Relevance
 [```inception.py```](https://github.com/Narabzad/Set-Based-Text-to-ImageGeneration/blob/main/inception.py) provide neccessary function to embed the images using InceptionV3 model and find the relevance score w.r.t a given target image. 
 
